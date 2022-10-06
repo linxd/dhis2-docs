@@ -17,19 +17,19 @@ DHIS2 documentation is organised into four broad categories. Choose the category
     [Explore user documentation](use/use.html)  
 
 
-!!! Implement
+!!! 实现
 
     Setting up a DHIS2 instance in a new country? Or implementing a new health program? These guides cover everything you should know before you start using DHIS2 to manage your data.
 
     [Explore implementer documentation](implement/implement.html)
 
-!!! Develop
+!!! 开发
 
     The developer manuals provide a detailed description of the DHIS2 core API and functionality, as well as the Android DHIS2 Software Development Kit (SDK). They serve as essential resources for developers building upon the DHIS2 platform.
 
     [Explore developer documentation](develop/develop.html)
 
-!!! Manage
+!!! 管理
     
     Are you a system administrator managing a DHIS2 instance? The system administration guide aims to provide support for the installation and maintenance of the DHIS2 platform.
 
@@ -53,13 +53,13 @@ DHIS2 documentation is organised into four broad categories. Choose the category
     
     [Explore tutorials](topics/tutorials/tutorials.html)
 
-!!! User Stories
+!!! 用户案例
 
     Read some stories from users and implementers in the field and learn how they are using DHIS2 to solve a variety of problems.
     
     [Explore user stories](topics/user-stories/user-stories.html)
 
-!!! Single Page documents and previous versions
+!!! 单页文档和以前版本
 
     Here you will find links to our documentation as single-page html and pdf documents for easier sharing. You will also find documentation for previous versions of DHIS2.
     
