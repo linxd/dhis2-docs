@@ -1,13 +1,11 @@
-# Introduction { #getting_started_linux_automated_install }
+# 介绍 { #getting_started_linux_automated_install }
 
-DHIS2 stands as a freely accessible, open-source, and adaptable software platform. It serves the purpose of collecting, managing, visualizing, and analyzing health data derived from diverse sources and programs. DHIS2 components are proxy (Nginx/Apache2), Tomcat Server, PostgreSQL database and optional APM and Server monitoring tools. This quick start shows you how to install dhis2 and its components to a single sever with dhis2-server tools.
+DHIS2 是一个免费访问、开源且灵活的软件平台，旨在收集、管理、可视化和分析来自不同来源和项目的健康数据。DHIS2 的组件包括代理服务器（如 Nginx 或 Apache2）、Tomcat 服务器、PostgreSQL 数据库以及可选的应用性能管理和服务器监控工具。本快速入门指南将向您展示如何使用 dhis2-server 工具在单个服务器上安装 DHIS2 及其组件。
 
-## Prerequisites {#getting_started_prerequisites }
-
-1. Server running Ubuntu 22.04 or 24.04
-2. SSH Access with `non-root` user with `sudo` privileges
-
-## Installing DHIS2
+#准备工作 {#getting_started_prerequisites }
+--运行 Ubuntu 22.04 或 24.04 的服务器
+--具有 sudo 权限的非 root 用户的 SSH 访问权限
+##安装 DHIS2
 
 1. Make sure your server’s firewall is active and the SSH port is allowed. Replace `{ssh_port}` with your actual SSH port number.
    ```
