@@ -1,0 +1,124 @@
+DHIS 2 文档
+您所有喜爱的文档——均采用 Markdown 格式！
+
+更新文件
+这部分很简单，大多数人只需要做这些就够了。以下章节将介绍格式、结构以及正确生成所需输出的一些注意事项。
+
+格式和编辑
+文档采用CommonMark Markdown 格式，并带有 .md.md扩展名。
+
+编辑文档就像编辑文本文件一样简单。许多集成开发环境 (IDE) 都支持 Markdown，包括实时预览。对于 Linux 和 Windows 系统，Typora是一款优秀的开源 Markdown 编辑器。
+
+结构
+文档站点的结构在构建存储库dhis2-docs-builder中定义。
+
+提示
+
+要找到要编辑的文档的来源，最好的方法是在 docs.dhis2.org 网站上找到该文档，然后点击页面顶部的“编辑”图标。
+
+添加图片
+图片资源应以相对路径的形式放在相对于当前文档的子文件夹中。例如，对于章节content/android/android-event-capture-app.md，图片应该位于某个子文件夹下content/android/resources/images/<rest-of-path>，并以如下方式引用：[](resources/images/<rest-of-path>)
+
+图片样式
+如果您想控制图片的对齐方式和大小，可以使用我们使用的 Markdown 扩展。它允许您在图片定义末尾的花括号中设置宽度、高度和类等属性。例如：
+
+![](resources/images/maintainence/predictor_sequential.png){ width=50% }
+这将使您的图像宽度变为页面宽度的 50%（最好使用百分比以支持各种输出格式），而
+
+![](resources/images/maintainence/predictor_sequential.png){ .center width=50% }
+同时，图像会在页面上居中显示（这是由于.centerCSS 中类的定义所致）。
+
+当图像像这样被书写时
+
+![Approving and accepting](resources/images/data_approval/approval_level_steps.png)
+也就是说，如果图注文字放在方括号内，则会显示为带图注的图表。默认情况下，图表居中显示，图注也居中并采用斜体显示。
+
+截屏
+如需查看 DHIS 2 网络界面的屏幕截图，我们建议使用 Chrome 浏览器，并安装以下两个扩展程序：
+
+窗口大小调整器。使用此功能将分辨率设置为1440x900。
+快照。使用此功能可快速创建可见部分的快照。
+如果需要，Fireshot 甚至可以截取整个页面（包括滚动后的页面）。它也可以只截取选定的区域（但最大宽度始终应为 1440 像素）。
+
+在对 Android 应用进行屏幕截图时，尺寸应设置为360x640。
+
+图像定位
+图像本地化通过将特定语言版本的图像与原始图像一起存储来实现。文件名应与原始英文版本相同，但_在文件名末尾、扩展名之前应包含语言代码。
+
+例如，如果您想要一个法语版本，
+resources/images/my_screenshot.png
+您可以简单地创建法语版本并将其另存为
+resources/images/my_screenshot_fr.png
+
+文档中的链接仍应指向原始图片。当为每种语言构建文档网站时，系统会识别并使用本地化图片，而不是英文原图。
+
+语言代码是您在查看本地化文档时，在 URL 中“docs.dhis2.org/”之后看到的第一部分。例如，在撰写本文时，我们有fr、es_419、和。ptcszh
+
+章节引用
+为了在文档中提供固定的引用（锚点），我们可以设置一个固定的文本字符串应用于任何章节。对于我们的 Markdown 处理器，这可以通过在包含章节标题的行尾添加一个用花括号括起来的哈希 ID 来实现，例如：
+
+## Validation { #webapi_validation }
+
+To generate a data validation summary you can interact ...
+将二级标题“验证”的节 ID 设置为“webapi_validation”，然后可以从任何html 文件中引用“#webapi_validation” 。
+
+笔记
+
+为了支持从其他文档通过锚点引用进行链接，请尽量保持章节 ID 的唯一性。例如，如果“#webapi_validation”在整个文档中是唯一的，那么您就可以在文档的任何其他部分直接引用它[link name](#webapi_validation)。
+如果被引用的章节 ID 不唯一，文档处理器将尝试解析为名称“最接近”的锚点。当链接文件属于特定版本时，处理器将忽略属于不同版本的锚点。
+
+警告
+
+我们的文档包含页面和完整文档两种形式。因此，不建议在文档间引用中使用路径。请使用如上所述的唯一章节 ID，以确保链接在两种文档类型中都能正确解析。
+
+（请遵循小写字母和下划线的约定，以便在文档生成过程中拆分文件时，创建的 ID 也能作为有效的文件名。）
+
+表格
+作为对纯 CommonMark 的扩展，我们也支持GFM 表（用竖线定义|），例如：
+
+| Table Type | Description |
+|:--|:----|
+|Commonmark (HTML)| Tables described in pure HTML |
+|Github Flavour Markdown (GFM)| Tables described with pipes: easier to read/edit, but limited in complexity|
+其输出结果如下：
+
+表格类型	描述
+Commonmark（HTML）	表格以纯 HTML 格式描述
+Github Flavour Markdown (GFM)	用竖线描述的表格：更易于阅读/编辑，但复杂性有限。
+对于简单的表格来说，这种格式更方便操作。虽然它仅限于单行文本（即每行必须单独占一行），但您可以根据需要使用<br>标签来创建换行符，从而有效地拆分单元格内的段落。
+
+重要的
+
+请尽量使用 GFM 表格，因为它们对翻译的支持更好。
+如果您确实需要更复杂的数据展示，也可以继续使用 HTML 表格（但您也可以考虑是否有更好的数据呈现方式）。
+
+提示
+
+如果要为 Markdown 表格添加标题，请添加一个以“表格：”开头的前置代码块，后跟标题。
+例如，以下代码将生成标题“数据存储结构”。
+
+Table: Data store structure
+
+| Item | Description | Data type |
+|---|---|---|
+| Namespace | Namespace for organization of entries. | String |
+| Key | Key for identification of values. | String |
+| Value | Value holding the information for the entry. | JSON |
+| Encrypted | Indicates whether the value of the given key should be encrypted | Boolean | 
+（注：在 GitHub 上，您只会看到“表格：...”文本块，但在文档网站中它会显示为标题。）
+
+包括
+!INCLUDE可以使用指令将另一个 Markdown 文件的内容包含到当前文件中。
+
+!INCLUDE "../other_directory/other_file.md"
+指令请使用相对链接!INCLUDE。
+
+笔记
+
+这些!INCLUDE指令并非纯粹的通用标记格式的一部分，而是在预处理中用于构建主文档。
+
+“DHIS2”还是“DHIS 2”，这是个问题
+历史上，在日常书面文本中提及该软件系统时，正确的形式是“DHIS 2”。为了方便起见，一些变量、路径等使用了简写形式，当然，在文档中也应遵循这些简写形式。请注意，我们目前正在逐步在所有文档中统一使用简写形式“DHIS2”。
+
+构建文档
+有关文档构建的信息，请参阅构建仓库dhis2-docs-builder。
